@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI CALCULATOR</title>
+
+</head>
+
+<body>
+<div style="display: flex; justify-content: center;">
+         <form action="#"  >
+     <h2>Registation Form</h2>
+      <label>Weight(in Kilograms) :</label>
+      <input type="float" id="weight" placeholder="weight in kg"><br>
+      <br>
+
+      <label>Height (in cms) :</label>
+      <input type="float" id="height" placeholder="height in cm" ><br>
+      <br>
+
+      <input type="button" onclick="bmi()" value="calculate" ><br>
+      <br>
+
+
+      <label> BMI:</label>
+      <input id="ans" type="text" /><br>
+      <br>
+
+      <label>Your are in:</label>
+      <input type="text" id="level"><br>
+      <br>
+
+  
+      <input type="reset" value="Reset"/><br>
+      <br>
+      </form>
+       </div>
+
+</body>
+<script>
+	function bmi()
+{
+    var w = parseFloat(document.getElementById("weight").value);
+    var h = parseFloat(document.getElementById("height").value)/100;
+    var b = w/(h*h);  // According to the formula
+    document.getElementById("ans").value = String(b.toPrecision(3)); 
+    if (b < 18.5)
+    {
+        document.getElementById("level").value = "Underweight";
+    }
+    else if (b >= 18.5 && b <= 25)
+    {
+        document.getElementById("level").value = "Healthy weight";
+    }
+    else if (b > 25 && b <= 30)
+    {
+        document.getElementById("level").value = "Overweight";
+    }
+    else if (b > 30 && b <= 35)
+    {
+        document.getElementById("level").value = "Obese Class 1";
+    }
+    else if(b > 35 && b <= 40)
+    {
+        document.getElementById("level").value = "Obese Class 2";
+    }
+    else
+    {
+        document.getElementById("level").value = "Obese Class 3";
+    }
+}
+</script>>
+</html>
